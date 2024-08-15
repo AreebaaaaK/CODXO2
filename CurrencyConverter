@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+public class CurrencyConverter {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Exchange rates (for example purposes)
+        double usdToInr = 82.50;
+        double eurToInr = 91.20;
+        double gbpToInr = 106.50;
+        double inrToUsd = 1 / usdToInr;
+        double inrToEur = 1 / eurToInr;
+        double inrToGbp = 1 / gbpToInr;
+
+        System.out.println("Welcome to the Currency Converter!");
+        System.out.println("Select the currency you want to convert from:");
+        System.out.println("1. USD to INR");
+        System.out.println("2. EUR to INR");
+        System.out.println("3. GBP to INR");
+        System.out.println("4. INR to USD");
+        System.out.println("5. INR to EUR");
+        System.out.println("6. INR to GBP");
+
+        System.out.print("Enter your choice (1-6): ");
+        int choice = scanner.nextInt();
+
+        System.out.print("Enter the amount to convert: ");
+        double amount = scanner.nextDouble();
+
+        double convertedAmount = 0;
+
+        switch (choice) {
+            case 1:
+                convertedAmount = amount * usdToInr;
+                System.out.printf("USD %.2f = INR %.2f%n", amount, convertedAmount);
+                break;
+            case 2:
+                convertedAmount = amount * eurToInr;
+                System.out.printf("EUR %.2f = INR %.2f%n", amount, convertedAmount);
+                break;
+            case 3:
+                convertedAmount = amount * gbpToInr;
+                System.out.printf("GBP %.2f = INR %.2f%n", amount, convertedAmount);
+                break;
+            case 4:
+                convertedAmount = amount * inrToUsd;
+                System.out.printf("INR %.2f = USD %.2f%n", amount, convertedAmount);
+                break;
+            case 5:
+                convertedAmount = amount * inrToEur;
+                System.out.printf("INR %.2f = EUR %.2f%n", amount, convertedAmount);
+                break;
+            case 6:
+                convertedAmount = amount * inrToGbp;
+                System.out.printf("INR %.2f = GBP %.2f%n", amount, convertedAmount);
+                break;
+            default:
+                System.out.println("Invalid choice!");
+                break;
+        }
+
+        scanner.close();
+    }
+}
